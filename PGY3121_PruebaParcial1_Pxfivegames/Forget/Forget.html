@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olvide contraseña</title>
+  <link rel="stylesheet" href="./../css/styleForget.css">
+  <link rel="stylesheet" href="./../css/styleModal.css">
+  <link rel="Icon" href="./../images/logo16x16.png" type="image/x-icon">
+</head>
+<body>
+  <div class="correo">
+    <h1>Recupera el acceso a tu cuenta</h1>
+    <form method="post">
+      <div class="a">
+        <label>Ingresa el correo para recuperar el acceso de tu cuenta</label>
+      </div>
+      <div class="email">
+        <input type="email" name="email" placeholder="ejemplo@correo.com" required>
+        <button id="myBtn">Continuar</button>
+      </div>
+    </form>
+  </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Se enviará un código al correo electrónico mencionado para continuar.</p>
+    </div>
+  </div>
+  <script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./../css/styleRegister.css">
+    <link rel="Icon" href="./../images/logo16x16.png" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+</head>
+
+<body>
+
+                        <div class="username">
+                            <h1>Crea tu cuenta</h1>
+                            <form method="post">
+
+                                <div class="usuario">
+                                    <input type="text" name="nombre" placeholder="Escriba su nombre completo" required>
+                                </div>
+
+                                <div class="usuario">
+                                    <input type="email" name="email" placeholder="Escriba su correo electronico"
+                                        required>
+
+                                </div>
+
+                                <div class="usuario">
+                                    <input type="password" name="password" placeholder="Escriba su contrase単a" required>
+
+                                </div>
+
+                                <div class="usuario">
+                                    <input type="password" name="confirm" placeholder="Repita su contrase単a" required>
+
+                                </div>
+
+                                <input type="submit" value="Registrarse">
+
+
+                            </form>
+                        </div class username>
+                        <script>
+                            $(document).ready(function () {
+                                $("form").validate({
+                                    rules: {
+                                        username: {
+                                            required: true,
+                                            minlength: 3
+                                        },
+                                        password: {
+                                            required: true,
+                                            minlength: 8
+                                        }
+                                    },
+                                    messages: {
+                                        username: {
+                                            required: "Por favor ingrese un nombre de usuario",
+                                            minlength: "El nombre de usuario debe tener al menos 3 caracteres"
+                                        },
+                                        password: {
+                                            required: "Por favor ingrese una contrase単a",
+                                            minlength: "La contrase単a debe tener al menos 8 caracteres"
+                                        }
+                                    }
+                                });
+                            });
+
+                        </script>
+
+</body>
+
+</html>

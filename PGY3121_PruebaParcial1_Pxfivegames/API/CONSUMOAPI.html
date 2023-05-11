@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API de RAWG con AJAX y jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        background: linear-gradient(120deg,#0ECAC7,#770ECA );
+      }
+      #games li {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <style>
+
+    #games li {
+      text-align: center;
+    }
+    #games li img {
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+
+  <body>
+    <h1>Juegos populares</h1>
+    <ul id="games"></ul>
+
+    <script>
+      const apiKey = 'dfaaa1c0079347e8802ba50f49547d40';
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&ordering=-added&page_size=20`;
+
+      $.ajax({
+        url: apiUrl,
+        method: 'GET',
+        success: function(response) {
+          response.results.forEach(function(game) {
+            const gameTitle = game.name;
+            const gameImage = game.background_image;
+            const gameUrl = game.slug;
+
+            $('#games').append(`
+              <li>
+                <h2>${gameTitle}</h2>
+                <a href="https://rawg.io/games/${gameUrl}" >
+                  <img src="${gameImage}">
+                </a>
+              </li>
+            `);
+          });
+        }
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $("#basic-form").validate();
+        });
+    </script>
+  </body>
+</html>
